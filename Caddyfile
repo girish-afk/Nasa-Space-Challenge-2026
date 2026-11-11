@@ -1,0 +1,19 @@
+:{$PORT:80} {
+    root * /app
+    encode zstd gzip
+
+    # Never expose PHP configuration, shared includes, local storage,
+    # Git metadata, environment files, or deployment configuration.
+    @private path /config /config/* /includes /includes/* /storage /storage/* /.git /.git/* /.env /.env.* /Dockerfile.vercel /Caddyfile
+    respond @private 404
+
+    header {
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        X-Frame-Options "SAMEORIGIN"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+        -Server
+    }
+
+    php_server
+}

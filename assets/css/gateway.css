@@ -1,0 +1,311 @@
+
+/* ==========================================
+   PROJECT ASTRO — INDEX BOTTOM SECTION FIX
+========================================== */
+
+/* Mission module cards */
+.gateway-module-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+}
+
+.gateway-module-grid .gateway-card {
+    min-width: 0;
+}
+
+/* Ready for Operations */
+.gateway-ready {
+    width: 86%;
+    max-width: 1440px;
+    margin: 20px auto 65px !important;
+    padding: 32px 36px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 30px;
+
+    background: var(--bg-card, #151f2d) !important;
+    border: 1px solid var(--border, #293545) !important;
+    border-radius: 12px !important;
+
+    box-sizing: border-box;
+}
+
+.gateway-ready > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.gateway-ready .panel-label {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--accent, #e66a45);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.gateway-ready h2 {
+    margin: 0 0 10px !important;
+
+    color: var(--text-primary, #ffffff) !important;
+    font-size: clamp(23px, 2.5vw, 32px) !important;
+    font-weight: 750;
+    line-height: 1.3;
+}
+
+.gateway-ready p {
+    margin: 0 !important;
+    max-width: 650px;
+
+    color: var(--text-secondary, #aab6c6) !important;
+    font-size: 14px !important;
+    line-height: 1.7;
+}
+
+/* Dashboard button */
+.gateway-ready > a {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    min-height: 46px;
+    padding: 0 22px;
+
+    border-radius: 7px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Footer */
+.gateway-footer {
+    width: 100%;
+    min-height: 90px;
+    padding: 20px 6%;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px;
+
+    box-sizing: border-box;
+    background: var(--bg-navbar, #101824);
+    border-top: 1px solid var(--border, #293545);
+}
+
+.gateway-footer > span {
+    color: var(--text-muted, #8090a4);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-align: right;
+    line-height: 1.6;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .gateway-module-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .gateway-ready {
+        width: calc(100% - 36px);
+        margin: 20px 18px 40px !important;
+        padding: 24px !important;
+
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 20px;
+    }
+
+    .gateway-ready > a {
+        width: 100%;
+        white-space: normal;
+    }
+
+    .gateway-footer {
+        padding: 22px 20px;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 14px;
+    }
+
+    .gateway-footer > span {
+        text-align: left;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 520px) {
+    .gateway-module-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .gateway-ready h2 {
+        font-size: 23px !important;
+    }
+
+    .gateway-ready p {
+        font-size: 13px !important;
+    }
+}
+
+/* Hide skip link until keyboard users focus it */
+.gateway-skip-link {
+    position: absolute !important;
+    top: 8px !important;
+    left: -9999px !important;
+
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+
+    white-space: nowrap;
+    z-index: 99999;
+}
+
+.gateway-skip-link:focus {
+    left: 10px !important;
+    width: auto;
+    height: auto;
+    padding: 10px 16px;
+
+    overflow: visible;
+    color: #ffffff;
+    background: #e66a45;
+    border-radius: 6px;
+    text-decoration: none;
+}
+/* Navigation toggle: hidden on desktop, accessible on smaller screens. */
+.gateway-menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border, #293545);
+    border-radius: 8px;
+    color: var(--text-primary, #17212b);
+    background: var(--bg-card, #fff);
+    font-size: 21px;
+    cursor: pointer;
+}
+.gateway-menu-toggle:focus-visible,
+.gateway-links a:focus-visible,
+.gateway-card:focus-visible,
+.gateway-actions a:focus-visible {
+    outline: 3px solid var(--accent, #50c8e8);
+    outline-offset: 3px;
+}
+.gateway-visual {
+    background-color: #202b39;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.gateway-visual-coordinate {
+    position: absolute;
+    top: 15px;
+    left: 18px;
+    z-index: 2;
+    padding: 6px 9px;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 5px;
+    color: #fff;
+    background: rgba(8,15,25,.48);
+    font-size: 11px;
+    letter-spacing: .4px;
+    backdrop-filter: blur(5px);
+}
+.gateway-visual-caption,
+.gateway-visual-overlay {
+    z-index: 1;
+}
+.gateway-visual-caption { z-index: 2; }
+
+@media (max-width: 767px) {
+    .gateway-menu-toggle { display: inline-flex; }
+    .gateway-nav { position: relative; }
+    .gateway-nav-cta { margin-left: auto; }
+    .gateway-links {
+        display: none;
+        order: 5;
+        flex: 0 0 100%;
+        width: 100%;
+        padding: 12px 0 4px;
+        flex-direction: column;
+        gap: 0;
+        border-top: 1px solid var(--border, #293545);
+    }
+    .gateway-links.is-open { display: flex; }
+    .gateway-links a { display: block; padding: 11px 4px; }
+}
+@media (max-width: 480px) {
+    .gateway-nav { gap: 10px; }
+    .gateway-brand strong { font-size: 12px; }
+    .gateway-brand small { font-size: 8px; }
+    .gateway-nav-cta { padding: 9px 10px; font-size: 10px; }
+    .gateway-menu-toggle { width: 36px; height: 36px; }
+}
+
+
+/* Authentication actions on the public mission gateway */
+.gateway-nav-cta-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-left: auto;
+}
+.gateway-user-greeting {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--text-secondary, #A3AFBE);
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.gateway-logout-form { display: inline-flex; margin: 0; }
+.gateway-nav-auth-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 38px;
+    padding: 9px 13px;
+    font-size: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.gateway-auth-notice {
+    width: fit-content;
+    max-width: 100%;
+    margin: 18px 0 0;
+    padding: 10px 14px;
+    border: 1px solid var(--border, rgba(255,255,255,.09));
+    border-radius: 7px;
+    color: var(--text-primary, #F1F3F6);
+    background: var(--bg-card, #141E2B);
+    font-size: 13px;
+}
+.gateway-auth-notice.success { border-color: rgba(57,197,138,.45); }
+.gateway-auth-notice.warning { border-color: rgba(233,180,76,.45); }
+.gateway-auth-notice.error { border-color: rgba(240,82,82,.45); }
+@media (max-width: 767px) {
+    .gateway-nav-cta-group { gap: 6px; }
+    .gateway-user-greeting { display: none; }
+}
+@media (max-width: 480px) {
+    .gateway-nav-cta-group { gap: 5px; }
+    .gateway-nav-auth-button { min-height: 34px; padding: 8px 9px; font-size: 10px; }
+}

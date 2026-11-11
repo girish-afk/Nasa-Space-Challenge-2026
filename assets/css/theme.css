@@ -1,0 +1,129 @@
+/*
+ * PROJECT ASTRO — LIGHT THEME
+ * Loaded after the shared and module stylesheets so every page uses one palette.
+ */
+:root[data-astro-theme="light"] {
+    color-scheme: light;
+    --bg-primary: #F3F5F7;
+    --bg-secondary: #E9EDF1;
+    --bg-sidebar: #FFFFFF;
+    --bg-navbar: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #F0F3F6;
+    --text-primary: #17212B;
+    --text-secondary: #526170;
+    --text-muted: #718091;
+    --border: rgba(25, 42, 58, .13);
+    --cyan: #1686A5;
+    --info: #1686A5;
+}
+:root[data-astro-theme="light"] body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+:root[data-astro-theme="light"] .sidebar,
+:root[data-astro-theme="light"] .top-navbar,
+:root[data-astro-theme="light"] .astro-card,
+:root[data-astro-theme="light"] .panel,
+:root[data-astro-theme="light"] .stat-card,
+:root[data-astro-theme="light"] .mission-card,
+:root[data-astro-theme="light"] .settings-navigation,
+:root[data-astro-theme="light"] .settings-panel {
+    background-color: var(--bg-card);
+    border-color: var(--border);
+}
+:root[data-astro-theme="light"] .sidebar { background: var(--bg-sidebar); }
+:root[data-astro-theme="light"] .top-navbar { background: var(--bg-navbar); }
+:root[data-astro-theme="light"] .nav-link-item:hover,
+:root[data-astro-theme="light"] .settings-nav-link:hover {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+:root[data-astro-theme="light"] input,
+:root[data-astro-theme="light"] select,
+:root[data-astro-theme="light"] textarea,
+:root[data-astro-theme="light"] .form-control,
+:root[data-astro-theme="light"] .form-select {
+    color: var(--text-primary);
+    background-color: #FFFFFF;
+    border-color: #C9D2DB;
+}
+:root[data-astro-theme="light"] input::placeholder,
+:root[data-astro-theme="light"] textarea::placeholder { color: #8794A1; }
+:root[data-astro-theme="light"] select option {
+    color: #17212B;
+    background: #FFFFFF;
+}
+:root[data-astro-theme="light"] .btn-secondary-custom,
+:root[data-astro-theme="light"] .secondary-button,
+:root[data-astro-theme="light"] .settings-choice {
+    color: var(--text-secondary);
+    border-color: var(--border);
+}
+:root[data-astro-theme="light"] .settings-choice.active {
+    color: var(--accent);
+    background: rgba(230,106,69,.09);
+}
+:root[data-astro-theme="light"] .mars-overlay {
+    background: linear-gradient(0deg, rgba(12,20,29,.88), transparent 90%);
+}
+:root[data-astro-theme="light"] .table,
+:root[data-astro-theme="light"] .table td,
+:root[data-astro-theme="light"] .table th {
+    color: var(--text-primary);
+    border-color: var(--border);
+}
+:root[data-astro-theme="light"] .modal-content,
+:root[data-astro-theme="light"] .dropdown-menu {
+    color: var(--text-primary);
+    background: #FFFFFF;
+    border-color: var(--border);
+}
+:root[data-astro-theme="light"] .leaflet-popup-content-wrapper,
+:root[data-astro-theme="light"] .leaflet-popup-tip {
+    color: #17212B;
+    background: #FFFFFF;
+}
+:root[data-astro-theme="light"] .leaflet-control,
+:root[data-astro-theme="light"] .leaflet-bar a {
+    color: #17212B;
+    background: #FFFFFF;
+    border-color: #C9D2DB;
+}
+:root[data-astro-theme="light"] .hazard-notice {
+    background: rgba(22,134,165,.07);
+}
+:root[data-astro-theme="light"] .settings-nav-note,
+:root[data-astro-theme="light"] .settings-divider,
+:root[data-astro-theme="light"] .result-divider {
+    border-color: var(--border);
+}
+:root[data-astro-theme="light"] .settings-switch-slider { background: #C6D0D9; }
+:root[data-astro-theme="light"] .settings-switch input:checked + .settings-switch-slider {
+    background: var(--accent);
+}
+:root[data-astro-theme="light"] .settings-page,
+:root[data-astro-theme="light"] .module-page-content,
+:root[data-astro-theme="light"] .dashboard-content,
+:root[data-astro-theme="light"] .module-content {
+    color: var(--text-primary);
+}
+:root[data-astro-theme="light"] .app-footer { color: var(--text-muted); }
+:root[data-astro-theme="light"] .settings-save-message {
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   READABILITY PASS — shared interface text
+   Keep compact metadata readable without changing the visual hierarchy.
+========================================= */
+.nav-section-title { font-size: 11px; }
+.brand small { font-size: 10px; }
+.breadcrumb-area { font-size: 13px; }
+.breadcrumb-area i { font-size: 11px; }
+.system-status { font-size: 12px; }
+.profile-info strong { font-size: 12px; }
+.profile-info small { font-size: 10px; }
+.main-content small,
+.main-content .small { font-size: max(12px, .8em); }

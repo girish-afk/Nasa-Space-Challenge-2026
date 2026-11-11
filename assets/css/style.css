@@ -1,0 +1,1807 @@
+
+/* =========================================
+   PROJECT ASTRO — GLOBAL DESIGN SYSTEM
+========================================= */
+
+:root {
+    --bg-primary: #090D14;
+    --bg-secondary: #0F1621;
+    --bg-sidebar: #0C131D;
+    --bg-navbar: #101722;
+    --bg-card: #141E2B;
+    --bg-elevated: #192534;
+
+    --accent: #E66A45;
+    --accent-hover: #F18460;
+    --cyan: #50C8E8;
+
+    --text-primary: #F1F3F6;
+    --text-secondary: #A3AFBE;
+    --text-muted: #788697;
+
+    --border: rgba(255,255,255,0.09);
+
+    --success: #39C58A;
+    --warning: #E9B44C;
+    --danger: #F05252;
+    --info: #50C8E8;
+
+    --sidebar-width: 260px;
+    --navbar-height: 72px;
+
+    --radius-sm: 5px;
+    --radius-button: 6px;
+    --radius-card: 9px;
+    --radius-modal: 12px;
+
+    --font-primary: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    font-size: 14px;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.app-layout {
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: transform .25s ease;
+}
+
+.brand {
+    height: 86px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand-icon {
+    width: 39px;
+    height: 39px;
+    background: rgba(230,106,69,.13);
+    color: var(--accent);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+}
+
+.brand strong {
+    display: block;
+    font-size: 15px;
+    letter-spacing: .5px;
+    font-weight: 800;
+}
+
+.brand strong span {
+    color: var(--accent);
+}
+
+.brand small {
+    color: var(--text-muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+    display: block;
+    margin-top: 4px;
+}
+
+.sidebar-close {
+    display: none;
+    margin-left: auto;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 0;
+    font-size: 20px;
+}
+
+.sidebar-nav {
+    padding: 22px 13px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.nav-section-title {
+    display: block;
+    color: var(--text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    padding: 18px 10px 9px;
+}
+
+.nav-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 42px;
+    padding: 0 12px;
+    margin-bottom: 4px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-radius: 6px;
+    transition: .2s ease;
+}
+
+.nav-link-item i {
+    font-size: 16px;
+}
+
+.nav-link-item:hover {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+.nav-link-item.active {
+    background: rgba(230,106,69,.13);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.sidebar-bottom {
+    padding: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.mission-card {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+}
+
+.mission-dot, .status-dot {
+    height: 8px;
+    width: 8px;
+    flex-shrink: 0;
+    background: var(--success);
+    border-radius: 50%;
+}
+
+.mission-card strong {
+    display: block;
+    font-size: 10px;
+}
+
+.mission-card small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 9px;
+    margin-top: 4px;
+}
+
+.sidebar-version {
+    color: var(--text-muted);
+    font-size: 9px;
+    text-align: center;
+    margin-top: 15px;
+    letter-spacing: .7px;
+}
+
+/* NAVBAR */
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+}
+
+.top-navbar {
+    height: var(--navbar-height);
+    background: var(--bg-navbar);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+
+.navbar-left, .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.breadcrumb-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+}
+
+.breadcrumb-area span {
+    color: var(--text-muted);
+}
+
+.breadcrumb-area i {
+    color: var(--text-muted);
+    font-size: 10px;
+}
+
+.breadcrumb-area strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+
+.profile-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 20px;
+    border-left: 1px solid var(--border);
+}
+
+.profile-avatar {
+    height: 35px;
+    width: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 7px;
+    background: rgba(230,106,69,.17);
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.profile-info strong {
+    display: block;
+    font-size: 11px;
+}
+
+.profile-info small {
+    color: var(--text-muted);
+    font-size: 9px;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+/* MAIN CONTENT */
+
+.dashboard-content {
+    max-width: 1600px;
+    margin: auto;
+    padding: 34px 32px;
+}
+
+.welcome-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.eyebrow, .panel-label {
+    color: var(--text-muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 13px;
+}
+
+.welcome-section h1 {
+    font-size: clamp(25px, 3vw, 32px);
+    font-weight: 800;
+    letter-spacing: -.8px;
+}
+
+.welcome-section p {
+    color: var(--text-secondary);
+    margin-top: 9px;
+    font-size: 13px;
+}
+
+.welcome-date {
+    padding: 14px 18px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    text-align: right;
+}
+
+.welcome-date span, .welcome-date strong {
+    display: block;
+}
+
+.welcome-date span {
+    color: var(--text-muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.welcome-date strong {
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 5px;
+}
+
+/* STATISTICS */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.stat-card, .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+}
+
+.stat-card {
+    padding: 20px;
+    transition: border-color .25s ease;
+}
+
+.stat-card:hover, .panel:hover {
+    border-color: rgba(230,106,69,.35);
+}
+
+.stat-top {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.stat-top i {
+    font-size: 19px;
+}
+
+.orange {
+    color: var(--accent);
+}
+
+.cyan {
+    color: var(--cyan);
+}
+
+.stat-card h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 22px;
+    letter-spacing: -.5px;
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-card h2 small {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.stat-card p {
+    color: var(--text-secondary);
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.stat-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 13px;
+    margin-top: 17px;
+    color: var(--text-muted);
+    font-size: 9px;
+    letter-spacing: .6px;
+}
+
+/* PANELS */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.panel {
+    padding: 22px;
+    min-width: 0;
+}
+
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.panel-heading h3, .section-heading h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 7px;
+}
+
+.live-tag {
+    font-size: 9px;
+    color: var(--success);
+    border: 1px solid rgba(57,197,138,.3);
+    padding: 6px 9px;
+    border-radius: 4px;
+}
+
+/* MARS IMAGE */
+
+.mars-visual {
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    background: var(--bg-secondary);
+}
+
+.mars-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .73;
+}
+
+.mars-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 25px;
+    background: linear-gradient(0deg, rgba(9,13,20,.95), transparent 90%);
+}
+
+.mars-overlay span {
+    color: var(--accent-hover);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.mars-overlay h2 {
+    font-size: 27px;
+    line-height: 1.25;
+    font-weight: 800;
+    margin: 9px 0 17px;
+}
+
+.btn-primary-custom {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: white;
+    padding: 11px 15px;
+    border-radius: var(--radius-button);
+    font-size: 11px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.btn-primary-custom:hover {
+    background: var(--accent-hover);
+    color: white;
+}
+
+/* OBJECTIVES */
+
+.objective-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.objective-item:last-child {
+    border-bottom: none;
+}
+
+.objective-icon, .module-icon, .source-icon {
+    height: 38px;
+    width: 38px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: var(--bg-elevated);
+    color: var(--cyan);
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.objective-item strong {
+    font-size: 11px;
+}
+
+.objective-item p {
+    color: var(--text-muted);
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.objective-status {
+    margin-left: auto;
+    font-size: 8px;
+    color: var(--warning);
+    white-space: nowrap;
+}
+
+/* MODULES */
+
+.quick-access-section {
+    margin-bottom: 25px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 17px;
+}
+
+.muted-text {
+    font-size: 9px;
+    color: var(--text-muted);
+    letter-spacing: .8px;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.module-card {
+    padding: 20px;
+    min-width: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    transition: .25s ease;
+}
+
+.module-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    background: var(--bg-elevated);
+}
+
+.module-icon {
+    margin-bottom: 17px;
+}
+
+.orange-bg {
+    color: var(--accent);
+    background: rgba(230,106,69,.12);
+}
+
+.cyan-bg {
+    color: var(--cyan);
+    background: rgba(80,200,232,.12);
+}
+
+.warning-bg {
+    color: var(--warning);
+    background: rgba(233,180,76,.12);
+}
+
+.green-bg {
+    color: var(--success);
+    background: rgba(57,197,138,.12);
+}
+
+.module-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.module-card p {
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.7;
+    min-height: 55px;
+    margin: 9px 0 15px;
+}
+
+.module-card > span {
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+/* DATA SOURCES */
+
+.data-panel {
+    margin-bottom: 25px;
+}
+
+.data-source {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.data-source:last-child {
+    border-bottom: none;
+}
+
+.source-icon {
+    color: var(--cyan);
+}
+
+.data-source strong {
+    font-size: 12px;
+}
+
+.data-source p {
+    color: var(--text-muted);
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.data-source a {
+    margin-left: auto;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.app-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    color: var(--text-muted);
+    font-size: 9px;
+    letter-spacing: .5px;
+    padding: 10px 0 0;
+}
+
+/* MOBILE DRAWER */
+
+.sidebar-backdrop {
+    display: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1200px) {
+    .stats-grid, .modules-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-close, .mobile-menu-btn {
+        display: block;
+    }
+
+    .sidebar-backdrop.show {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 900;
+        background: rgba(0,0,0,.65);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .top-navbar {
+        padding: 0 16px;
+    }
+
+    .dashboard-content {
+        padding: 25px 16px;
+    }
+
+    .welcome-section {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .welcome-date {
+        text-align: left;
+    }
+
+    .system-status span:last-child,
+    .profile-info {
+        display: none;
+    }
+
+    .profile-area {
+        padding-left: 12px;
+    }
+
+    .breadcrumb-area {
+        gap: 7px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid, .modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 17px;
+    }
+
+    .mars-visual {
+        height: 240px;
+    }
+
+    .mars-overlay h2 {
+        font-size: 23px;
+    }
+
+    .panel {
+        padding: 16px;
+    }
+
+    .objective-status {
+        font-size: 7px;
+    }
+
+    .app-footer {
+        flex-direction: column;
+    }
+
+    .section-heading .muted-text {
+        display: none;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+    }
+}
+
+
+/* =========================================
+   PROJECT ASTRO — MARTIAN EXPLORER
+========================================= */
+
+.btn-secondary-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 10px 14px;
+    color: var(--text-primary);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-button);
+    font-size: 11px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.btn-secondary-custom:hover {
+    border-color: var(--accent);
+    color: var(--accent-hover);
+}
+
+.explorer-welcome {
+    align-items: center;
+}
+
+.explorer-toolbar {
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.map-search {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    width: min(100%, 520px);
+    color: var(--text-muted);
+}
+
+.map-search input {
+    flex: 1;
+    min-width: 0;
+    height: 38px;
+    padding: 0 12px;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    outline: none;
+    font: inherit;
+    font-size: 11px;
+}
+
+.map-search input:focus {
+    border-color: var(--accent);
+}
+
+.map-search input::placeholder {
+    color: var(--text-muted);
+}
+
+.map-search .btn-primary-custom {
+    border: 0;
+    cursor: pointer;
+}
+
+.map-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.map-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+.icon-button {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    color: var(--text-secondary);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.icon-button:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.explorer-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 310px;
+    gap: 18px;
+    align-items: start;
+}
+
+.map-panel {
+    padding: 20px;
+    min-width: 0;
+}
+
+.map-heading {
+    margin-bottom: 16px;
+}
+
+.map-layer-tag {
+    color: var(--cyan);
+    background: rgba(80,200,232,.08);
+    border: 1px solid rgba(80,200,232,.2);
+    padding: 6px 9px;
+    border-radius: 4px;
+    font-size: 9px;
+    white-space: nowrap;
+}
+
+#marsMap {
+    width: 100%;
+    height: 570px;
+    background: #111923;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.map-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 13px;
+    color: var(--text-muted);
+    font-size: 9px;
+}
+
+.map-footer i {
+    color: var(--cyan);
+    margin-right: 5px;
+}
+
+.explorer-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+.coordinate-panel,
+.layer-panel,
+.map-help-panel {
+    padding: 19px;
+}
+
+.coordinate-value {
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.coordinate-value span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 9px;
+    letter-spacing: .8px;
+    margin-bottom: 7px;
+}
+
+.coordinate-value strong {
+    font-size: 17px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.copy-coordinate {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.coordinate-note {
+    color: var(--text-muted);
+    font-size: 9px;
+    line-height: 1.6;
+    margin: 12px 0 0;
+}
+
+.layer-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.layer-option:last-child {
+    border-bottom: 0;
+}
+
+.layer-option strong,
+.layer-option small {
+    display: block;
+}
+
+.layer-option strong {
+    font-size: 11px;
+}
+
+.layer-option small {
+    color: var(--text-muted);
+    font-size: 9px;
+    margin-top: 5px;
+}
+
+.layer-active {
+    color: var(--success);
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.layer-option a {
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.map-help-panel > div {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding-top: 13px;
+    color: var(--text-secondary);
+    font-size: 10px;
+}
+
+.map-help-panel > div i {
+    color: var(--cyan);
+    font-size: 14px;
+}
+
+.source-panel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 18px;
+    padding: 17px 20px;
+}
+
+.source-panel .source-icon {
+    flex-shrink: 0;
+}
+
+.source-panel strong {
+    font-size: 11px;
+}
+
+.source-panel p {
+    color: var(--text-muted);
+    font-size: 10px;
+    line-height: 1.6;
+    margin: 5px 0 0;
+}
+
+.source-panel > a {
+    margin-left: auto;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Leaflet controls adapted to the PROJECT ASTRO theme */
+
+.leaflet-container {
+    font-family: var(--font-primary);
+}
+
+.leaflet-control-zoom a {
+    color: var(--text-primary) !important;
+    background: var(--bg-card) !important;
+    border-color: var(--border) !important;
+}
+
+.leaflet-control-attribution {
+    background: rgba(9,13,20,.85) !important;
+    color: var(--text-secondary) !important;
+    font-size: 9px !important;
+}
+
+.leaflet-control-attribution a {
+    color: var(--cyan) !important;
+}
+
+.astro-map-popup .leaflet-popup-content-wrapper,
+.astro-map-popup .leaflet-popup-tip {
+    color: var(--text-primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+.astro-map-popup .leaflet-popup-content {
+    font-family: var(--font-primary);
+    font-size: 11px;
+}
+
+@media (max-width: 1200px) {
+    .explorer-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .explorer-side {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .map-help-panel {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .explorer-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .map-search {
+        width: 100%;
+    }
+
+    .map-toolbar-right {
+        justify-content: space-between;
+    }
+
+    #marsMap {
+        height: 430px;
+    }
+
+    .explorer-side {
+        grid-template-columns: 1fr;
+    }
+
+    .map-footer {
+        flex-direction: column;
+    }
+
+    .source-panel {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .source-panel > a {
+        margin-left: 52px;
+    }
+}
+
+@media (max-width: 480px) {
+    .map-panel {
+        padding: 13px;
+    }
+
+    #marsMap {
+        height: 350px;
+    }
+
+    .map-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .map-search {
+        gap: 7px;
+    }
+
+    .map-search input {
+        font-size: 10px;
+    }
+}
+
+/* =========================================
+   PROJECT ASTRO — FOUNDATION HOMEPAGE
+========================================= */
+
+.gateway-body {
+    background: var(--bg-primary);
+}
+
+.gateway-nav {
+    min-height: 78px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: var(--bg-navbar);
+    border-bottom: 1px solid var(--border);
+}
+
+.gateway-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.gateway-brand strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.gateway-brand em {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.gateway-brand small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.gateway-links {
+    display: flex;
+    gap: 28px;
+}
+
+.gateway-links a {
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.gateway-links a:hover {
+    color: var(--accent-hover);
+}
+
+.gateway-hero {
+    min-height: 570px;
+    padding: 65px 7%;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 35px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+}
+
+.gateway-content {
+    max-width: 650px;
+}
+
+.gateway-kicker {
+    display: block;
+    margin-top: 28px;
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.gateway-content h1 {
+    margin-top: 15px;
+    font-size: clamp(40px, 5vw, 65px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.gateway-content h1 span {
+    color: var(--accent);
+}
+
+.gateway-description {
+    max-width: 560px;
+    margin: 22px 0;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.gateway-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn-secondary-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 10px 15px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-button);
+    color: var(--text-primary);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.btn-secondary-custom:hover {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    background: var(--bg-elevated);
+}
+
+.gateway-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 17px;
+    margin-top: 35px;
+    color: var(--text-muted);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.gateway-meta i {
+    color: var(--cyan);
+    margin-right: 5px;
+}
+
+.gateway-visual {
+    min-height: 370px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    background:
+        linear-gradient(0deg, rgba(9,13,20,.25), transparent),
+        url('../images/mars-landscape.jpg') center/cover no-repeat;
+}
+
+.gateway-visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(9,13,20,.92),
+        transparent 65%
+    );
+}
+
+.gateway-visual-caption {
+    position: absolute;
+    bottom: 23px;
+    left: 23px;
+    color: var(--text-secondary);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.gateway-visual-caption strong {
+    display: block;
+    margin-top: 8px;
+    color: var(--text-primary);
+    font-size: 15px;
+}
+
+.gateway-scroll {
+    position: absolute;
+    bottom: 20px;
+    left: 7%;
+    color: var(--text-muted);
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.gateway-scroll span {
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    margin-right: 8px;
+    vertical-align: middle;
+    background: var(--accent);
+}
+
+.gateway-capabilities {
+    padding: 65px 7%;
+}
+
+.gateway-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.gateway-section-heading h2 {
+    margin-top: 9px;
+    color: var(--text-primary);
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.gateway-section-heading p {
+    max-width: 390px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.gateway-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.gateway-card {
+    min-height: 235px;
+    display: flex;
+    flex-direction: column;
+    padding: 21px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    transition: .2s ease;
+}
+
+.gateway-card[href]:hover {
+    color: inherit;
+    background: var(--bg-elevated);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.gateway-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 17px;
+    border-radius: 7px;
+    font-size: 17px;
+}
+
+.feature-index {
+    color: var(--text-muted);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.gateway-card h3 {
+    margin: 10px 0;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.gateway-card p {
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.feature-link {
+    margin-top: auto;
+    padding-top: 12px;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+.gateway-planned {
+    opacity: .8;
+}
+
+.gateway-planned .feature-link {
+    color: var(--text-muted);
+}
+
+.gateway-footer {
+    min-height: 85px;
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: var(--bg-navbar);
+    border-top: 1px solid var(--border);
+}
+
+.gateway-footer > span {
+    color: var(--text-muted);
+    font-size: 9px;
+    letter-spacing: .8px;
+}
+
+@media (max-width: 1100px) {
+    .gateway-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .gateway-nav {
+        padding: 15px 18px;
+        flex-wrap: wrap;
+    }
+
+    .gateway-links {
+        display: none;
+    }
+
+    .gateway-hero {
+        grid-template-columns: 1fr;
+        padding: 45px 20px 65px;
+    }
+
+    .gateway-content h1 {
+        font-size: 43px;
+    }
+
+    .gateway-visual {
+        min-height: 250px;
+    }
+
+    .gateway-scroll {
+        left: 20px;
+    }
+
+    .gateway-capabilities {
+        padding: 45px 20px;
+    }
+
+    .gateway-section-heading {
+        display: block;
+    }
+
+    .gateway-section-heading p {
+        margin-top: 12px;
+    }
+
+    .gateway-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gateway-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 22px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gateway-card,
+    .gateway-links a {
+        transition: none;
+    }
+
+    .gateway-card[href]:hover {
+        transform: none;
+    }
+}
+
+/* =========================================
+   PROJECT ASTRO — MISSION DASHBOARD PHASE 2
+   Extends the existing global design system.
+========================================= */
+.astro-dashboard { padding-top: 30px; }
+.dashboard-welcome { margin-bottom: 20px; }
+.dashboard-clock-card { min-width: 190px; text-align: right; }
+.dashboard-clock-card .mission-clock { color: var(--accent); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: .5px; }
+.dashboard-clock-card small { display: block; color: var(--text-muted); font-size: 9px; margin-top: 5px; }
+.dashboard-status-strip { display: flex; align-items: center; flex-wrap: wrap; gap: 13px; padding: 11px 14px; margin-bottom: 18px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 7px; color: var(--text-muted); font-size: 9px; font-weight: 700; letter-spacing: .65px; }
+.dashboard-status-strip > div { display: flex; align-items: center; gap: 8px; }
+.status-indicator { width: 7px; height: 7px; background: var(--success); border-radius: 50%; box-shadow: 0 0 0 3px rgba(57,197,138,.10); }
+.status-separator { height: 14px; width: 1px; background: var(--border); }
+.dashboard-facts { margin-bottom: 20px; }
+.dashboard-facts .stat-card h2 { white-space: nowrap; }
+.dashboard-feature-grid { display: grid; grid-template-columns: minmax(0,1.35fr) minmax(330px,1fr); gap: 18px; margin-bottom: 20px; }
+.dashboard-hero-panel, .dashboard-objectives-panel, .analytics-panel { min-width: 0; }
+.dashboard-mars-visual { height: 300px; position: relative; overflow: hidden; border-radius: 7px; background: var(--bg-secondary); }
+.dashboard-mars-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(9,13,20,.96), rgba(9,13,20,.08) 85%); pointer-events: none; }
+.dashboard-mars-visual img { width: 100%; height: 100%; display: block; object-fit: cover; opacity: .78; }
+.dashboard-mars-visual.image-unavailable { background: radial-gradient(ellipse at 72% 35%, rgba(230,106,69,.22), transparent 42%), var(--bg-secondary); }
+.dashboard-mars-overlay { position: absolute; z-index: 1; left: 23px; right: 23px; bottom: 23px; }
+.dashboard-mars-overlay > span { color: var(--accent-hover); font-size: 9px; font-weight: 700; letter-spacing: 1.1px; }
+.dashboard-mars-overlay h2 { margin: 8px 0; font-size: clamp(22px,2.4vw,29px); line-height: 1.18; font-weight: 800; }
+.dashboard-mars-overlay p { max-width: 430px; margin: 0 0 13px; color: var(--text-secondary); font-size: 11px; line-height: 1.6; }
+.image-credit { position: absolute; z-index: 2; top: 12px; right: 13px; color: rgba(241,243,246,.72); font-size: 8px; letter-spacing: .7px; }
+.dashboard-objectives-panel .objective-item { gap: 10px; }
+.objective-copy { min-width: 0; }
+.objective-status { font-weight: 700; letter-spacing: .35px; }
+.dashboard-note { display: flex; align-items: flex-start; gap: 7px; margin: 10px 0 0; color: var(--text-muted); font-size: 9px; line-height: 1.55; }
+.dashboard-note i { color: var(--cyan); margin-top: 1px; }
+.dashboard-analytics-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-bottom: 28px; }
+.analytics-panel { padding-bottom: 16px; }
+.chart-unit { color: var(--text-muted); font-size: 8px; font-weight: 700; letter-spacing: .8px; white-space: nowrap; }
+.chart-canvas-wrap { position: relative; width: 100%; }
+.chart-doughnut-wrap { height: 230px; max-width: 390px; margin: 0 auto; }
+.chart-bar-wrap { height: 230px; }
+.chart-footnote { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 9px; line-height: 1.6; }
+.dashboard-modules-section { margin-bottom: 25px; }
+.module-card-planned { cursor: default; }
+.module-card-planned:hover { border-color: var(--border); transform: none; background: var(--bg-card); }
+.module-card-planned > span { color: var(--text-muted); }
+.dashboard-sources-panel { margin-bottom: 22px; }
+.dashboard-data-disclaimer { display: flex; gap: 9px; margin-top: 14px; padding: 12px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 6px; color: var(--text-secondary); font-size: 9px; line-height: 1.6; }
+.dashboard-data-disclaimer i { color: var(--warning); flex-shrink: 0; }
+
+@media (max-width: 1100px) {
+    .dashboard-feature-grid { grid-template-columns: 1fr; }
+    .dashboard-analytics-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .dashboard-clock-card { text-align: left; }
+    .dashboard-status-strip { gap: 9px; }
+    .status-separator { display: none; }
+}
+@media (max-width: 480px) {
+    .dashboard-mars-visual { height: 270px; }
+    .dashboard-mars-overlay { left: 16px; right: 16px; bottom: 17px; }
+    .chart-doughnut-wrap, .chart-bar-wrap { height: 210px; }
+}
+
+/* =========================================
+   PHASE 3 — INTERACTIVE MARS EXPLORER
+   Uses the existing PROJECT ASTRO design tokens.
+========================================= */
+.explorer-feedback {
+    display: none;
+    margin: -7px 0 13px;
+    padding: 9px 12px;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 10px;
+}
+.explorer-feedback.is-visible { display: block; }
+.explorer-feedback.is-error { color: var(--danger); border-color: rgba(240,82,82,.35); }
+.map-control-strip {
+    display: grid;
+    grid-template-columns: auto minmax(100px, 170px) 1fr;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 12px;
+    color: var(--text-secondary);
+    font-size: 10px;
+}
+.map-control-strip label { white-space: nowrap; }
+.map-control-strip label strong { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+.map-control-strip input[type="range"] { width: 100%; accent-color: var(--accent); }
+.map-control-hint { justify-self: end; color: var(--text-muted); font-size: 9px; }
+.map-control-hint i { color: var(--cyan); margin-right: 5px; }
+.coordinate-actions { display: grid; grid-template-columns: .8fr 1.2fr; gap: 8px; margin-top: 15px; }
+.coordinate-actions button { min-height: 37px; cursor: pointer; }
+.coordinate-actions .copy-coordinate { margin-top: 0; }
+.layer-attribution-note { color: var(--text-muted); font-size: 9px; line-height: 1.6; padding-top: 10px; }
+.saved-locations { display: flex; flex-direction: column; gap: 7px; }
+.empty-saved { color: var(--text-muted); font-size: 10px; line-height: 1.6; margin: 0; }
+.saved-location-item { display: flex; align-items: center; gap: 6px; padding: 7px 8px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+.saved-location-open { flex: 1; min-width: 0; padding: 3px 0; color: var(--text-secondary); background: transparent; border: 0; text-align: left; font: inherit; font-size: 9px; overflow-wrap: anywhere; cursor: pointer; }
+.saved-location-open:hover { color: var(--accent-hover); }
+.saved-location-remove { flex: 0 0 28px; width: 28px; height: 28px; color: var(--text-muted); background: transparent; border: 1px solid transparent; border-radius: 4px; cursor: pointer; }
+.saved-location-remove:hover { color: var(--danger); border-color: var(--border); }
+.saved-clear { align-self: flex-start; margin-top: 11px; padding: 0; color: var(--text-muted); background: none; border: 0; font-size: 9px; cursor: pointer; }
+.saved-clear:hover { color: var(--danger); }
+#mapPanel:fullscreen { width: 100%; height: 100%; padding: 22px; overflow: auto; background: var(--bg-primary); }
+#mapPanel:fullscreen #marsMap { height: calc(100vh - 155px); }
+.leaflet-control-scale-line { color: var(--text-primary) !important; background: rgba(9,13,20,.8) !important; border-color: var(--text-secondary) !important; font-size: 9px !important; }
+.leaflet-control-attribution { max-width: 85%; }
+
+@media (max-width: 768px) {
+    .map-control-strip { grid-template-columns: 1fr auto; gap: 8px 12px; }
+    .map-control-strip input[type="range"] { grid-column: 1 / -1; grid-row: 2; }
+    .map-control-hint { justify-self: end; }
+    .coordinate-actions { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+    .map-control-strip { grid-template-columns: 1fr; }
+    .map-control-hint { justify-self: start; }
+    .map-control-strip input[type="range"] { grid-column: auto; grid-row: auto; }
+}
+
+
+/* ===== PROJECT ASTRO MARS HERO IMAGE FIX ===== */
+
+.gateway-visual {
+    position: relative;
+    min-height: 370px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+
+    background-color: #101827;
+    background-image: url("../images/mars-landscape.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Reduce the dark overlay */
+.gateway-visual-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to top,
+        rgba(5, 12, 25, 0.58) 0%,
+        rgba(5, 12, 25, 0.12) 35%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+/* Image coordinates - top left */
+.gateway-coordinate {
+    position: absolute;
+    z-index: 3;
+    top: 14px;
+    left: 16px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+}
+
+/* Bottom image caption */
+.gateway-visual-caption {
+    position: absolute;
+    z-index: 3;
+    left: 23px;
+    bottom: 23px;
+    color: #ffffff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.7);
+}
+
+.gateway-visual-caption strong {
+    display: block;
+    margin-top: 8px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+/* Mobile image */
+@media (max-width: 768px) {
+    .gateway-visual {
+        min-height: 260px;
+        background-position: center center;
+    }
+
+    .gateway-visual-caption {
+        left: 16px;
+        bottom: 16px;
+    }
+}
+
+/* Authentication navigation */
+.sidebar-logout{padding:8px 14px 12px;margin:0}.sidebar-logout .nav-link-item{width:100%;border:0;background:transparent;text-align:left;color:inherit;cursor:pointer}.sidebar-logout .nav-link-item:hover{color:#E66A45;background:rgba(230,106,69,.08)}

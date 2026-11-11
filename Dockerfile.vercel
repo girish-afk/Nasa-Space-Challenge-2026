@@ -1,0 +1,17 @@
+FROM dunglas/frankenphp:1-php8.4-alpine
+
+WORKDIR /app
+
+# Use production PHP settings and enable cURL for outbound NASA API requests.
+RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
+    && install-php-extensions curl opcache
+
+# Preserve the existing PHP pages, assets, APIs, and folder structure.
+COPY . /app
+COPY Caddyfile /etc/caddy/Caddyfile
+
+ENV PORT=80
+ENV APP_ENV=production
+
+# The FrankenPHP image entrypoint already runs `frankenphp run`.
+CMD ["--config", "/etc/caddy/Caddyfile"]

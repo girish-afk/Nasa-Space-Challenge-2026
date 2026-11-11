@@ -1,0 +1,22 @@
+# PROJECT ASTRO - security hardening
+Options -Indexes -MultiViews
+ServerSignature Off
+
+# Block internal folders and non-public files
+RedirectMatch 403 ^/(?:.*/)?(config|includes|storage|database)(/|$)
+<FilesMatch "(^\.|\.(md|sql|json|log|ini|bak|env|sh)$)">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+    Header always unset X-Powered-By
+</IfModule>
+
+<IfModule mod_php.c>
+    php_flag display_errors off
+    php_flag expose_php off
+</IfModule>
